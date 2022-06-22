@@ -1,9 +1,12 @@
-.App {
-  text-align: center;
+.App {  
+  height: auto;
+  align-items: center;
+  justify-content: space-evenly;  
+  color: #ffffff;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
 }
 
@@ -35,4 +38,77 @@
   to {
     transform: rotate(360deg);
   }
+}
+ 
+.todo-list {
+  margin-top: 16px;
+  height: 48px;
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+li {
+  list-style: none;
+  overflow-wrap: anywhere;
+  height: auto;
+  width: 250px;
+}
+
+.inputgroup{
+  position: relative;
+}
+
+.labelinput{
+  position: absolute;
+  left: 15px;
+  font-size: 20px;
+  top: 2px;
+  transition: all 0.2s;  
+  z-index: 1;
+  color: grey;
+  user-select: none;
+}
+.textinput{
+  /* padding: 0.8rem; */
+  /* border: 2px solid #2f2c45; */
+  /* background: #272530; */
+  /* border-radius: 5px;   */
+  outline: none;
+  transition: all 0.3s;
+  color: #fff;
+}
+
+
+
+.textinput:focus{
+  border: 3px solid #38f2ff;  
+}
+
+.textinput:focus + .labelinput{
+  top: -30px;
+  left: 5px;
+  color: #38f2ff;
+  font-size: 18px;
+  /* text-shadow: 1.5px 1px 2px #38f2ff;   */
+}
+
+.textinput::placeholder{
+  font-size: 16px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.textinput:focus::placeholder{
+  opacity: 1;
+  
+}
+
+.textinput:not(:placeholder-shown) + .labelinput{
+  top: -30px;
+  left: 5px;
+  color: #38f2ff;
+  font-size: 18px;
 }
