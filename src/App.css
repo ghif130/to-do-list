@@ -50,11 +50,22 @@
   align-items: center;
   color: #ffffff;
 }
+
 li {
   list-style: none;
   overflow-wrap: anywhere;
   height: auto;
   width: 250px;
+}
+
+.btn-input-submit{
+  border: 3px;
+  margin-top: 2px;    
+  display: flex;
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  align-items: center;
+  color: #ffffff;
 }
 
 .inputgroup{
@@ -65,34 +76,32 @@ li {
   position: absolute;
   left: 15px;
   font-size: 20px;
-  top: 2px;
+  top: 10px;
   transition: all 0.2s;  
   z-index: 1;
   color: grey;
   user-select: none;
 }
+
 .textinput{
-  /* padding: 0.8rem; */
+  /* padding: 0.4rem; */
   /* border: 2px solid #2f2c45; */
   /* background: #272530; */
   /* border-radius: 5px;   */
-  outline: none;
+  /* outline: none; */
   transition: all 0.3s;
-  color: #fff;
+  /* color: #fff; */
 }
-
-
 
 .textinput:focus{
   border: 3px solid #38f2ff;  
 }
 
 .textinput:focus + .labelinput{
-  top: -30px;
+  top: -25px;
   left: 5px;
   color: #38f2ff;
-  font-size: 18px;
-  /* text-shadow: 1.5px 1px 2px #38f2ff;   */
+  font-size: 18px;   
 }
 
 .textinput::placeholder{
@@ -102,13 +111,13 @@ li {
 }
 
 .textinput:focus::placeholder{
-  opacity: 1;
-  
+  opacity: 1;  
 }
 
 .textinput:not(:placeholder-shown) + .labelinput{
-  top: -30px;
+  top: -25px;  
   left: 5px;
   color: #38f2ff;
   font-size: 18px;
+  opacity: 1;
 }

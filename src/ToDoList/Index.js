@@ -7,12 +7,10 @@ import { faCheck, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 const Index = ({ item, index, deleteTodoItem, completeTodoItem, updateTodoItem }) => {        
     return (
         <div className="todo-list">            
-
             {/* <li style={{textDecoration: item.complete ? "line-through" : ""}}>                 */}            
             <li>                
                 {item.todo+' '}
-                {item.complete ? <FontAwesomeIcon icon={faCheck} /> : ""}
-                {/* {item.complete ? <i class="fa fa-check"></i> : ""}                 */}
+                {item.complete ? <FontAwesomeIcon icon={faCheck} /> : ""}                
             </li>        
 
             <div>                
