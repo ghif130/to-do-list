@@ -56,6 +56,7 @@ function App() {
     const newTodoItems = [...todoItems];
     const item = newTodoItems[index];
     let newItem = prompt(`Update ${item.todo}?`, item.todo);  
+    console.log(newItem)
     let todoObj = { todo: newItem, complete: item.complete };
     newTodoItems.splice(index, 1, todoObj);
     
@@ -65,6 +66,7 @@ function App() {
       item.todo = newItem;
     }
     setTodoItems(newTodoItems);
+    
   };
   
   return (
