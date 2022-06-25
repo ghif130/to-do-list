@@ -34,7 +34,7 @@ function App() {
     swal({
       title: `Done`,
       // text: "Once deleted, you will not be able to recover this file!",
-      text: `To Do ${todoItems[index].todo} Deleted`,      
+      text: `To Do ${todoItems[index].todo} Successfully Deleted`,      
       icon: "success",      
       timer: 3000,
     })
@@ -54,19 +54,87 @@ function App() {
 
   const updateTodoItem = (index) => {
     const newTodoItems = [...todoItems];
-    const item = newTodoItems[index];
-    let newItem = prompt(`Update ${item.todo}?`, item.todo);  
-    console.log(newItem)
-    let todoObj = { todo: newItem, complete: item.complete };
-    newTodoItems.splice(index, 1, todoObj);
+    const item = newTodoItems[index];    
+    //let newItem = prompt(`Update ${item.todo}?`, item.todo);  
     
-    if (newItem === null || newItem === "") {
-      return;
-    } else {
-      item.todo = newItem;
-    }
-    setTodoItems(newTodoItems);
     
+    //let {value: newItem} = 
+    let newItem
+    swal({      
+      title:  `Update ${item.todo} ?`,
+      content: {
+        element: "input",
+        attributes: {
+          placeholder: "Update",
+          type: "text",
+          value: item.todo,
+        },      
+      },     
+      closeOnClickOutside: false,      
+      buttons:{
+        // cancel: {
+        //   text: "Cancel",
+        //   value: null,
+        //   visible: true,
+        //   className: "",
+        //   closeModal: false,
+        // },
+        confirm: {
+          text: "Update",
+          value: true,
+          visible: true,
+          className: "",
+          closeModal: true,          
+        }
+      }
+    }).then((value) => {
+        if (value){   
+          newItem = value          
+          console.log(value)
+          console.log(newItem)
+      
+          let todoObj = { todo: newItem, complete: item.complete };
+          console.log(todoObj)
+          newTodoItems.splice(index, 1, todoObj);
+          
+          if (newItem === null || newItem === "" ||newItem === undefined) {
+            return;
+          } else {
+            item.todo = newItem;
+          }
+          setTodoItems(newTodoItems);
+          swal('Done', `To Do ${item.todo} Updated Successfully`,'success',{timer: 3000})
+
+        }
+        else{
+          newItem = item.todo   
+          console.log(newItem)       
+          console.log(item.todo)
+
+          let todoObj = { todo: newItem, complete: item.complete };
+          console.log(todoObj)
+          newTodoItems.splice(index, 1, todoObj);
+          
+          if (newItem === null || newItem === "" ||newItem === undefined) {
+            return;
+          } else {
+            item.todo = newItem;
+          }
+          setTodoItems(newTodoItems);
+          swal('Info!!', `To Do ${item.todo} Failed to Update`,'info',{timer: 3000})
+        }            
+    });
+        
+    // let todoObj = { todo: newItem, complete: item.complete };
+    // console.log(todoObj)
+    // newTodoItems.splice(index, 1, todoObj);
+    
+    // if (newItem === null || newItem === "" ||newItem === undefined) {
+    //   return;
+    // } else {
+    //   item.todo = newItem;
+    // }
+    // setTodoItems(newTodoItems);    
   };
   
   return (
